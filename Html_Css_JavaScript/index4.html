@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    // Objects and Arrays in JavaScript
+    // An object is a collection of properties, where each property is a key-value pair.
+    // An array is an ordered list of values, which can be of any type, including objects and other arrays.
+
+    const user = {
+        name : "Niti",
+        role : "admin",
+        
+    }
+
+    <script>
+
+        let student = {}; // It will create an empty object   
+
+        let person={
+
+            firstName : "Niti",
+            lastName : " Dwivedi"
+        }                                // These are attributes of a Person class object 
+
+        person.firstName = "Jatin"
+        person.lastName = " Mehta"
+
+        person.age =78;  // Adding a new attribute to a person class object
+
+        console.log('age' in person);
+        console.log("Niti" in person);
+
+        delete person.age; // deleting an attribute of a person class object
+
+        console.log(person); // to print the entire object details
+
+
+
+        let address = ["tilak nagar" , "delhi"]; // this is an array which can store multiple values of different data types
+        const colorCodes = [4,6,7,4];
+        const mixedArray = ["hello" ,45454 , true , {address:"New Delhi"}]; 
+
+        console.log(address[0]);
+        console.log(address);
+
+    </script>
+</body>
+</html>

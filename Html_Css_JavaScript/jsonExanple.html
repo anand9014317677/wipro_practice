@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- let's say we have to fetch employee data from the server -->
+    <!-- Traditional approach which was static -->
+    <h3> Employee</h3>
+    <ul>
+<li>Niti - Trainer</li>
+<li>Nitin - Trainer</li>
+<li>Sakshi - Trainer</li>
+<li>Jatin - Trainer</li>
+    </ul>
+
+<!-- Modern Approach-->
+
+<h3> Product Data in JSON</h3>
+<ul id = "productlist"></ul> // we will populate this list with the data from JSON
+
+<script>
+    const jsonData= `[
+            {"item" : "Laptop" , "price" : 60000},
+            {"item" : "Mouse" , "price" : 500},
+            {"item" : "Keyboard" , "price" : 700},
+            {"item" : "Speaker" , "price" : 5000}
+    ]`;
+
+   
+ const productData = JSON.parse(jsonData);
+console.log(productData);
+
+
+ const list = document.getElementById("productlist");
+
+ //call back function
+ productData.forEach(element => {
+   
+   const li =  document.createElement("li");
+   li.textContent = `Element Name : ${element.item} - Element Price : ${element.price}`;
+
+   console.log(li.textContent);
+   
+   list.append(li); 
+   console.log(list);
+ });
+
+</script>
+</body>
+</html>

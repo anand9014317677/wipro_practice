@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {font-family: Arial;}
+    </style>
+</head>
+<body>
+    <!--Create a program to perform CRUD various operations using fetch api -- HTMl provides get , post  ,delete , put
+    1. Fetch users from an api and display them in a list
+    2. Add a new user using post request
+    3. Update a user by ID using PUT request
+    4. Delete a user by ID using Delete request  
+    -->
+
+<!--parmeterized query -->
+
+    <h3> User Management Operations</h3>
+
+    <button onclick="fetchUser()">Fetch Users</button>
+     <button onclick="addUser()">Add Users</button>
+      <button onclick="updateUser()">Update Users</button>
+       <button onclick="deleteUser()">Delete Users</button>
+        <ul id="users"></ul>
+       <!-- API --application programming interface used to communicate between two applications may be created in different
+        languages -->
+<script>
+
+    const apiurl = "https://jsonplaceholder.typicode.com/users";
+    const ul = document.getElementById("users");
+
+      function fetchUser(){
+        fetch(apiurl)
+        .then(res=> res.json())
+        .then(users => {
+                  
+            users.forEach(user => {
+   
+            const li =  document.createElement("li");
+            li.textContent = `User Name : ${user.username} - EMail : ${user.email}`;
+             ul.append(li); 
+             });
+
+        })
+        .catch(err=> console.error(err))
+      }
+      function addUser(){
+
+        const newUser = {
+            name: "Niti",
+            email:"abc@gmail.com"
+        }
+
+        fetch(apiurl,{
+
+                method:"POST",
+                headers:{"Content-Type": "application/json"},
+                // it converts a JavaScript object into a JSON string, which is the format expected by the server when sending data in a POST request.
+        
+                body:JSON.stringify(newUser) 
+        .then(res=>res.json())
+        .then(data=>{
+            alert("User data is added");
+            fetchUser();
+        })
+      })
+      function updateUser(){
+//Parameterized query - it is a technique used to safely pass parameters to a query or an API endpoint, which helps prevent security vulnerabilities such as SQL injection or cross-site scripting (XSS) attacks. In the context of the updateUser function, it allows us to specify the ID of the user we want to update without directly concatenating it into the URL, which can be dangerous if the input is not properly sanitized.
+         const id = prompt("Enter the id to update the records") ;
+
+         fetch(`${apiurl}/${id}`,{
+
+                method:"PUT",
+                headers:{"Content-Type": "application/json"},
+                body:JSON.stringify({name:"updated username", email:"xyz@gmail.com"})
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            alert("User updated");
+            fetchUser();
+        })
+
+      }
+      function deleteUser(){
+
+        
+         const id = prompt("Enter the id to delete the record") ;
+
+         fetch(`${apiurl}/${id}`,{
+
+                method:"DELETE",
+                
+        })
+        
+        .then(()=>{
+            alert("User deleted");
+            fetchUser();
+        })
+
+      }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Price Calculation</title>
+</head>
+<body>
+    <pre id = "output"></pre>
+<script>
+  const prices = [
+  {item:"laptop", price: 3000}, 
+  {item:"TV", price: 1500}, 
+  {item:"Mouse", price: 2500}, 
+  {item:"AC", price: 4000}
+];
+// //in js we call it as spread operator 
+// void values(int a[4]){
+// }
+// //varargs - variable number of arguments
+// void values(int a[...]){
+// }
+  
+  // p arrow function will take each product p from an array and return a new object 
+  // ...(spread) means- it will copy all properties of the original product and apply discount on it 
+  const discountedPrices = prices.map(p => ({...p , price :p.price * 0.10}));
+  //it's returning a new array of objects with discounted prices, without modifying the original array of products.
+  console.log(typeof discountedPrices);
+  console.log(discountedPrices);
+  document.writeln("Discounted Prices (10% off): " + JSON.stringify(discountedPrices) + "<br><br>");
+  const filteredPrices = discountedPrices.filter(p => p.price > 200);
+  document.writeln("Filtered Prices (>2000): " + JSON.stringify(filteredPrices) + "<br><br>");
+  const totalPrice = discountedPrices.reduce((sum, p) => sum + p.price, 0);
+  document.writeln("Total Accumulated Price: " + totalPrice);
+ document.getElementById("output").textContent = totalPrice;
+</script>
+</body>
+</html>

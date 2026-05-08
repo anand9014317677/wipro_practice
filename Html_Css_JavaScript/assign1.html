@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment 1 - Employee Dashboard</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+  <h2 class="text-center mb-4">Employee Management Dashboard</h2>
+
+  <!-- Form Section -->
+  <div class="card p-3 mb-4">
+    <h5>Add / Update Employee</h5>
+
+    <input type="hidden" id="empId">
+
+    <input type="text" id="name" class="form-control mb-2" placeholder="Enter Name">
+    <input type="email" id="email" class="form-control mb-2" placeholder="Enter Email">
+    <input type="text" id="company" class="form-control mb-2" placeholder="Enter Company">
+
+    <button class="btn btn-primary" onclick="saveEmployee()">Save</button>
+  </div>
+
+  <!-- Table -->
+  <table class="table table-bordered text-center">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Company</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="employeeTable"></tbody>
+  </table>
+
+</div>
+
+<!-- JS File -->
+<script src="assign1.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+
+
+
+<body>
+   <button type="button" class="btn btn-primary"  onclick="validateForm(userName , age , isSubscribed)" >Click Here</button>
+    <button type="button" class="btn btn-danger"  onclick="showMessage()" >Click Here</button>
+   <script>
+
+    let userName = prompt("Enter user name");
+    let age = prompt("Enter your age")
+    let isSubscribed = "true";
+
+    document.writeln("Your Name is : " + userName );
+    document.writeln("Your Age is : " + + age );
+
+
+function validateForm(userName , age , isSubscribed)
+{
+
+       let userNameType = typeof userName;
+    let ageType = typeof age;
+    let isSubscribedType = typeof isSubscribed;
+
+    console.log("User Name : " + userName + "Data type :" + userNameType);
+    console.log("Age : " + age + "Data type :" + ageType);
+    console.log("isSubscribe : " + isSubscribed + "Data type :" + isSubscribedType);
+
+    //conversion
+    age = Number(age);
+    isSubscribed = isSubscribed ==="false";
+
+      console.log("User Name : " + userName + "Data type :" + userNameType);
+    console.log("Age : " + age + "Data type :" + typeof age);
+    console.log("isSubscribe : " + isSubscribed + "Data type :" + typeof isSubscribed);
+
+}
+
+function showMessage()
+{
+alert ("The event has occured");
+
+}
+
+
+
+//json format and object literal format are same in javascript
+const user ={
+    role: "client"
+}
+if(user.role === "admin" && isSubscribed === "true")
+{
+    let accessLevel = "Full Control"
+    console.log("The access level is :" , accessLevel);
+}
+else (user.role === "client" && isSubscribed === "false")
+{
+    console.log("The access level is :" , "Partial Control");
+}
+
+
+
+   </script>
+</body>
+</html>

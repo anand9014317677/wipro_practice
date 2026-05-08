@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity-3</title>
+</head>
+<body>
+
+<script>
+    const salaries = [45000, 67000, 36000];
+
+    // Increment salaries using map
+    const incrementedSalaries = salaries.map(salary => salary + 1000);
+    document.write("Incremented Salaries: " + incrementedSalaries + "<br>");
+
+    // Filter highly paid employees (> 50000)
+    const highlyPaid = salaries.filter(salary => salary > 50000);
+    document.write("Highly Paid Employees: " + highlyPaid + "<br>");
+
+    // Total salary using reduce
+    const totalSalary = salaries.reduce((sum, salary) => sum + salary, 0);
+    document.write("Total Salary: " + totalSalary);
+</script>
+
+</body>
+</html>

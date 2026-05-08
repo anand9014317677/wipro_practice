@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!--  defined a manager bean -->    <!--
+	Manager allocator = new Manager(); -->
+	<bean id="allocator" class="com.configurationstyle.Manager" />
+	<!--  defined a delegate bean -->
+	<bean id="delegate" class="com.configurationstyle.DelegateXmlBased">
+		<constructor-arg ref="allocator" />  <!-- constructor based injection -->
+	</bean>
+
+</beans>
