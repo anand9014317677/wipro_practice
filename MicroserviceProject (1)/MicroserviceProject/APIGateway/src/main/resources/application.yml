@@ -1,0 +1,24 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: API-GATEWAY
+
+  cloud:
+    gateway:
+      routes:
+        - id: order-service
+          uri: lb://ORDERSERVICE
+          predicates:
+            - Path=/order/**
+
+        - id: payment-service
+          uri: lb://PAYMENTSERVICE
+          predicates:
+            - Path=/payment/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

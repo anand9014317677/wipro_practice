@@ -1,0 +1,35 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: Cloud-api-gateway
+
+  config:
+    import: "optional:configserver:http://localhost:9196"
+
+  cloud:
+    gateway:
+      routes:
+        - id: order-service
+          uri: lb://ORDERSERVICE
+          predicates:
+            - Path=/order/**
+
+        - id: payment-service
+          uri: lb://PAYMENTSERVICE
+          predicates:
+            - Path=/payment/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

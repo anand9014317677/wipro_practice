@@ -1,0 +1,15 @@
+2026-05-15 [main] INFO  c.company.SpringBootAopApplication - Starting SpringBootAopApplication using Java 17.0.12 with PID 24972 (C:\Users\golla\Downloads\Learning Management System\SpringBootAop\target\classes started by golla in C:\Users\golla\Downloads\Learning Management System\SpringBootAop)
+2026-05-15 [main] INFO  c.company.SpringBootAopApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-15 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-05-15 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-15 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.54]
+2026-05-15 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-15 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1577 ms
+2026-05-15 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-05-15 [main] INFO  c.company.SpringBootAopApplication - Started SpringBootAopApplication in 3.383 seconds (process running for 4.516)
+2026-05-15 [main] INFO  com.company.aop.LoggingAop - Transaction support Started
+2026-05-15 [main] INFO  com.company.aop.LoggingAop - Transaction committed
+2026-05-15 [main] INFO  com.company.aop.LoggingAop - Transaction support Started
+2026-05-15 [main] INFO  com.company.aop.LoggingAop - Transaction committed
+2026-05-15 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-15 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete

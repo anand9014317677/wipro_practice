@@ -1,0 +1,45 @@
+Monolithic Architecture  :
+
+ Designing an application on a single port no where all services are running on that port no. which you have defined
+ 
+ 
+ Pizza Hut:  8080
+ 
+ Menu 
+ Order 
+ Payment  -- Payment get failed due to any xyz reason)
+ Notification ( Alert , Mail etc..) --- Order is getting processed 
+ Menu 
+ 
+ 
+ Enterprise large level of application : Amazon
+ 
+ Microservice architecture : ( Costly)
+ 
+ here we create multiple services on multiple port no's 
+ 
+ Order Microservice -- 8081  -- eureka client
+ User Microservice  -- 8082 -- eureka client
+ Payment Microservice -- 8083  -- fall back method -- eureka client
+ Notification Microservice -- 8084 -- eureka client
+ Cloud Configuration Microservice -- 8085 -- eureka client
+ 
+ Common gateway --- 9000 //
+ 
+ Eureka Server  --- 8761   ---
+ a) Spring web
+ b) Eureka Server
+ c) Actuator -- Health of your server ( Metric report)
+ 
+ 2 step :
+ Add an annotation in main file as @EnableEurekaServer
+ 
+ 
+ we have created two microservices 
+ UserMicroservice : user1,user2,user3
+ ContactMicroservice : 3 contacts are saved for a user1 , 2 contacts are saved for a user 2
+ 
+ I want to fetch the contacts details from user microservice only so usermicroservice will internally call 
+ contact microservice
+ 
+ To communicate between user nd contact microservice we need either resttemplate or feignclient

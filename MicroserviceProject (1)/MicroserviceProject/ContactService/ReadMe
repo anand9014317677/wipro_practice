@@ -1,0 +1,21 @@
+Spring boot -- > Created one application (Monolithic Architecture)
+
+
+You have ordered a Pizza  --- Pizza Hut  --- ( Monolithic Architecture --- 8080)
+
+you order a pizza
+you have made the payment -- payment gateway
+notification  ( messages , alert , mail)
+discount % ()
+looking for a menu for some products 
+
+MicroService architecture 
+
+Order Microservice-   8008  ---       Eureka Client1
+Payment Microservice - 8009 ---       Eureka Client2
+Notification Microservice -- 8010 --  Eureka Client3
+
+Eureka Server
+
+
+User have multiple contacts

@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: cloud-api-gateway
+  cloud:
+    config:
+      uri: http://localhost:9196
