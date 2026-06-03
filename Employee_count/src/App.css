@@ -1,0 +1,44 @@
+body{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container{
+  background: linear-gradient(orange, yellow);
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  width: 400px;
+}
+
+h1{
+  font-size: 40px;
+}
+
+p{
+  font-size: 25px;
+}
+
+h2{
+  font-size: 60px;
+}
+
+.btn-group{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button{
+  background-color: crimson;
+  color: white;
+  border: none;
+  padding: 15px;
+  width: 170px;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
