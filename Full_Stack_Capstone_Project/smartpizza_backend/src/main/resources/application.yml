@@ -1,0 +1,61 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: smartpizza-backend
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:smartpizza}?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:1234}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  # Email is OFF by default. The block below is commented out so the app does NOT
+  # create a mail connection (which otherwise made the actuator health check warn).
+  # To enable email later: uncomment, set MAIL_HOST/MAIL_USERNAME/MAIL_PASSWORD,
+  # and set MAIL_ENABLED=true.
+  # mail:
+  #   host: ${MAIL_HOST:}
+  #   port: ${MAIL_PORT:587}
+  #   username: ${MAIL_USERNAME:}
+  #   password: ${MAIL_PASSWORD:}
+  #   properties:
+  #     mail:
+  #       smtp:
+  #         auth: true
+  #         starttls:
+  #           enable: true
+
+app:
+  jwt:
+    # IMPORTANT: override in production via the JWT_SECRET env var. Must be >= 32 chars.
+    secret: ${JWT_SECRET:smartpizza-dev-secret-key-please-change-me-0123456789-abcdefghij}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}   # 24 hours
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173,http://localhost:3000}
+  mail:
+    enabled: ${MAIL_ENABLED:false}
+    from: ${MAIL_FROM:SmartPizza <no-reply@smartpizza.ai>}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  health:
+    mail:
+      enabled: false
